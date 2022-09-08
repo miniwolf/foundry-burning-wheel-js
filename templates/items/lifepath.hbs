@@ -1,0 +1,66 @@
+<form autocomplete="off" class="flex-column lifepath-sheet">
+    <div class="flex-row">
+        {{#if showImage}}
+        <img class="item-image" src="{{item.img}}" title="{{item.name}}" data-edit="img"/>
+        {{/if}}
+        <input name="name" type="text" value="{{item.name}}" class="item-sheet-name">
+    </div>
+    <div class="item-form-group">
+        <label class="item-setting-label">
+            Time
+        </label>
+        <input type="number" name="system.time" value="{{system.time}}">
+        <label class="item-setting-label">
+            Resources
+        </label>
+        <input type="number" name="system.resources" value="{{system.resources}}">
+        <label class="item-setting-label">
+            Stat Boost
+        </label>
+        <select name="system.statBoost" value="{{system.statBoost}}" >
+            {{#select system.statBoost}}
+            <option value="none">None</option>
+            <option value="mental">Mental</option>
+            <option value="physical">Physical</option>
+            <option value="either">Either</option>
+            <option value="both">Both</option>
+            {{/select}}
+        </select>
+        <div class="pill-toggle min-content">
+            <input id="{{item.id}}-sub-stats" type="checkbox" class="item-setting-checkbox hidden" name="system.subtractStats" {{checked system.subtractStats}}>
+            <label for="{{item.id}}-sub-stats" class="item-setting-toggle">Subtract Stats</label>
+        </div>
+        <div></div>
+        <label class="item-setting-label">
+            Leads
+        </label>
+        <input type="text" name="system.leads" value="{{system.leads}}" class="triple-wide">
+        <label class="item-setting-label">
+            Skill Points
+        </label>
+        <input type="number" name="system.skillPoints" value="{{system.skillPoints}}">
+        <label class="item-setting-label">
+            General Points
+        </label>
+        <input type="number" name="system.generalPoints" value="{{system.generalPoints}}">
+    </div>
+    <label class="item-list-label">Skill List</label>
+    <textarea name="system.skillList">{{system.skillList}}</textarea>
+    <hr>
+    <div class="item-form-group">
+        <label class="item-setting-label">
+            Trait Points
+        </label>
+        <input type="number" name="system.traitPoints" value="{{system.traitPoints}}">
+    </div>
+    <label class="item-list-label">Trait List</label>
+    <textarea name="system.traitList">{{system.traitList}}</textarea>
+    <hr>
+    <label class="item-list-label">Restrictions</label>
+    <textarea name="system.restrictions">{{system.restrictions}}</textarea>
+    <hr>
+    <label class="item-list-label">Requirements</label>
+    <textarea name="system.requirements">{{system.requirements}}</textarea>
+    <label class="item-list-label">Note</label>
+    <textarea name="system.note">{{system.note}}</textarea>
+</form>
